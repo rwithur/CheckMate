@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2115BDC21BE6656600DF5D0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2115BDC11BE6656600DF5D0C /* main.m */; };
+		2115BDC51BE6656600DF5D0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2115BDC41BE6656600DF5D0C /* AppDelegate.m */; };
+		2115BDC81BE6656600DF5D0C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2115BDC71BE6656600DF5D0C /* ViewController.m */; };
+		2115BDCB1BE6656600DF5D0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2115BDC91BE6656600DF5D0C /* Main.storyboard */; };
+		2115BDCD1BE6656600DF5D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2115BDCC1BE6656600DF5D0C /* Assets.xcassets */; };
+		2115BDD01BE6656600DF5D0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2115BDCE1BE6656600DF5D0C /* LaunchScreen.storyboard */; };
+		2115BDDB1BE6656600DF5D0C /* CheckMateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2115BDDA1BE6656600DF5D0C /* CheckMateTests.m */; };
+		2115BDE61BE6656600DF5D0C /* CheckMateUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2115BDE51BE6656600DF5D0C /* CheckMateUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2115BDD71BE6656600DF5D0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2115BDB51BE6656600DF5D0C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2115BDBC1BE6656600DF5D0C;
+			remoteInfo = CheckMate;
+		};
+		2115BDE21BE6656600DF5D0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2115BDB51BE6656600DF5D0C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2115BDBC1BE6656600DF5D0C;
+			remoteInfo = CheckMate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2115BDBD1BE6656600DF5D0C /* CheckMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2115BDC11BE6656600DF5D0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2115BDC31BE6656600DF5D0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2115BDC41BE6656600DF5D0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2115BDC61BE6656600DF5D0C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2115BDC71BE6656600DF5D0C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2115BDCA1BE6656600DF5D0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2115BDCC1BE6656600DF5D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2115BDCF1BE6656600DF5D0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2115BDD11BE6656600DF5D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2115BDD61BE6656600DF5D0C /* CheckMateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckMateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2115BDDA1BE6656600DF5D0C /* CheckMateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckMateTests.m; sourceTree = "<group>"; };
+		2115BDDC1BE6656600DF5D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2115BDE11BE6656600DF5D0C /* CheckMateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckMateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2115BDE51BE6656600DF5D0C /* CheckMateUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckMateUITests.m; sourceTree = "<group>"; };
+		2115BDE71BE6656600DF5D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2115BDBA1BE6656600DF5D0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2115BDD31BE6656600DF5D0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2115BDDE1BE6656600DF5D0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2115BDB41BE6656600DF5D0C = {
+			isa = PBXGroup;
+			children = (
+				2115BDBF1BE6656600DF5D0C /* CheckMate */,
+				2115BDD91BE6656600DF5D0C /* CheckMateTests */,
+				2115BDE41BE6656600DF5D0C /* CheckMateUITests */,
+				2115BDBE1BE6656600DF5D0C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2115BDBE1BE6656600DF5D0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2115BDBD1BE6656600DF5D0C /* CheckMate.app */,
+				2115BDD61BE6656600DF5D0C /* CheckMateTests.xctest */,
+				2115BDE11BE6656600DF5D0C /* CheckMateUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2115BDBF1BE6656600DF5D0C /* CheckMate */ = {
+			isa = PBXGroup;
+			children = (
+				2115BDC31BE6656600DF5D0C /* AppDelegate.h */,
+				2115BDC41BE6656600DF5D0C /* AppDelegate.m */,
+				2115BDC61BE6656600DF5D0C /* ViewController.h */,
+				2115BDC71BE6656600DF5D0C /* ViewController.m */,
+				2115BDC91BE6656600DF5D0C /* Main.storyboard */,
+				2115BDCC1BE6656600DF5D0C /* Assets.xcassets */,
+				2115BDCE1BE6656600DF5D0C /* LaunchScreen.storyboard */,
+				2115BDD11BE6656600DF5D0C /* Info.plist */,
+				2115BDC01BE6656600DF5D0C /* Supporting Files */,
+			);
+			path = CheckMate;
+			sourceTree = "<group>";
+		};
+		2115BDC01BE6656600DF5D0C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2115BDC11BE6656600DF5D0C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2115BDD91BE6656600DF5D0C /* CheckMateTests */ = {
+			isa = PBXGroup;
+			children = (
+				2115BDDA1BE6656600DF5D0C /* CheckMateTests.m */,
+				2115BDDC1BE6656600DF5D0C /* Info.plist */,
+			);
+			path = CheckMateTests;
+			sourceTree = "<group>";
+		};
+		2115BDE41BE6656600DF5D0C /* CheckMateUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2115BDE51BE6656600DF5D0C /* CheckMateUITests.m */,
+				2115BDE71BE6656600DF5D0C /* Info.plist */,
+			);
+			path = CheckMateUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2115BDBC1BE6656600DF5D0C /* CheckMate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2115BDEA1BE6656600DF5D0C /* Build configuration list for PBXNativeTarget "CheckMate" */;
+			buildPhases = (
+				2115BDB91BE6656600DF5D0C /* Sources */,
+				2115BDBA1BE6656600DF5D0C /* Frameworks */,
+				2115BDBB1BE6656600DF5D0C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CheckMate;
+			productName = CheckMate;
+			productReference = 2115BDBD1BE6656600DF5D0C /* CheckMate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2115BDD51BE6656600DF5D0C /* CheckMateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2115BDED1BE6656600DF5D0C /* Build configuration list for PBXNativeTarget "CheckMateTests" */;
+			buildPhases = (
+				2115BDD21BE6656600DF5D0C /* Sources */,
+				2115BDD31BE6656600DF5D0C /* Frameworks */,
+				2115BDD41BE6656600DF5D0C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2115BDD81BE6656600DF5D0C /* PBXTargetDependency */,
+			);
+			name = CheckMateTests;
+			productName = CheckMateTests;
+			productReference = 2115BDD61BE6656600DF5D0C /* CheckMateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2115BDE01BE6656600DF5D0C /* CheckMateUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2115BDF01BE6656600DF5D0C /* Build configuration list for PBXNativeTarget "CheckMateUITests" */;
+			buildPhases = (
+				2115BDDD1BE6656600DF5D0C /* Sources */,
+				2115BDDE1BE6656600DF5D0C /* Frameworks */,
+				2115BDDF1BE6656600DF5D0C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2115BDE31BE6656600DF5D0C /* PBXTargetDependency */,
+			);
+			name = CheckMateUITests;
+			productName = CheckMateUITests;
+			productReference = 2115BDE11BE6656600DF5D0C /* CheckMateUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2115BDB51BE6656600DF5D0C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Rwithu Menon";
+				TargetAttributes = {
+					2115BDBC1BE6656600DF5D0C = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					2115BDD51BE6656600DF5D0C = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 2115BDBC1BE6656600DF5D0C;
+					};
+					2115BDE01BE6656600DF5D0C = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 2115BDBC1BE6656600DF5D0C;
+					};
+				};
+			};
+			buildConfigurationList = 2115BDB81BE6656600DF5D0C /* Build configuration list for PBXProject "CheckMate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2115BDB41BE6656600DF5D0C;
+			productRefGroup = 2115BDBE1BE6656600DF5D0C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2115BDBC1BE6656600DF5D0C /* CheckMate */,
+				2115BDD51BE6656600DF5D0C /* CheckMateTests */,
+				2115BDE01BE6656600DF5D0C /* CheckMateUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2115BDBB1BE6656600DF5D0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2115BDD01BE6656600DF5D0C /* LaunchScreen.storyboard in Resources */,
+				2115BDCD1BE6656600DF5D0C /* Assets.xcassets in Resources */,
+				2115BDCB1BE6656600DF5D0C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2115BDD41BE6656600DF5D0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2115BDDF1BE6656600DF5D0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2115BDB91BE6656600DF5D0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2115BDC81BE6656600DF5D0C /* ViewController.m in Sources */,
+				2115BDC51BE6656600DF5D0C /* AppDelegate.m in Sources */,
+				2115BDC21BE6656600DF5D0C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2115BDD21BE6656600DF5D0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2115BDDB1BE6656600DF5D0C /* CheckMateTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2115BDDD1BE6656600DF5D0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2115BDE61BE6656600DF5D0C /* CheckMateUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2115BDD81BE6656600DF5D0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2115BDBC1BE6656600DF5D0C /* CheckMate */;
+			targetProxy = 2115BDD71BE6656600DF5D0C /* PBXContainerItemProxy */;
+		};
+		2115BDE31BE6656600DF5D0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2115BDBC1BE6656600DF5D0C /* CheckMate */;
+			targetProxy = 2115BDE21BE6656600DF5D0C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2115BDC91BE6656600DF5D0C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2115BDCA1BE6656600DF5D0C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2115BDCE1BE6656600DF5D0C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2115BDCF1BE6656600DF5D0C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2115BDE81BE6656600DF5D0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2115BDE91BE6656600DF5D0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2115BDEB1BE6656600DF5D0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CheckMate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RM.CheckMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2115BDEC1BE6656600DF5D0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CheckMate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RM.CheckMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2115BDEE1BE6656600DF5D0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CheckMateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RM.CheckMateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CheckMate.app/CheckMate";
+			};
+			name = Debug;
+		};
+		2115BDEF1BE6656600DF5D0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CheckMateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RM.CheckMateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CheckMate.app/CheckMate";
+			};
+			name = Release;
+		};
+		2115BDF11BE6656600DF5D0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CheckMateUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RM.CheckMateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CheckMate;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		2115BDF21BE6656600DF5D0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CheckMateUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RM.CheckMateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CheckMate;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2115BDB81BE6656600DF5D0C /* Build configuration list for PBXProject "CheckMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2115BDE81BE6656600DF5D0C /* Debug */,
+				2115BDE91BE6656600DF5D0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2115BDEA1BE6656600DF5D0C /* Build configuration list for PBXNativeTarget "CheckMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2115BDEB1BE6656600DF5D0C /* Debug */,
+				2115BDEC1BE6656600DF5D0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2115BDED1BE6656600DF5D0C /* Build configuration list for PBXNativeTarget "CheckMateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2115BDEE1BE6656600DF5D0C /* Debug */,
+				2115BDEF1BE6656600DF5D0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2115BDF01BE6656600DF5D0C /* Build configuration list for PBXNativeTarget "CheckMateUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2115BDF11BE6656600DF5D0C /* Debug */,
+				2115BDF21BE6656600DF5D0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2115BDB51BE6656600DF5D0C /* Project object */;
+}
