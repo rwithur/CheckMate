@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9527.1" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5kZ-kg-x4f">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9525.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="PtW-bU-DRM">
+            <objects>
+                <navigationController id="5kZ-kg-x4f" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="np2-Ae-UAE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1s5-Fc-dw6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lse-fk-wsS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-397" y="350"/>
+        </scene>
+        <!--CheckMate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CMLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +32,90 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4E-Yt-8LR">
+                                <rect key="frame" x="249" y="341" width="103" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="A1O-GG-V7f"/>
+                                    <constraint firstAttribute="width" constant="103" id="Seg-hy-0Lm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="Create a family"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="130" y="366" width="140" height="45"/>
+                                </variation>
+                                <connections>
+                                    <action selector="createTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zBn-XW-xdu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfq-cA-gtg">
+                                <rect key="frame" x="257" y="466" width="86" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="46v-Zh-xPf"/>
+                                    <constraint firstAttribute="height" constant="30" id="hIg-rV-41b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="Join a family"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="130" y="489" width="140" height="45"/>
+                                </variation>
+                                <connections>
+                                    <action selector="joinTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9rJ-3I-szi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CheckMate helps you monitor where your near and dear ones are. Create a family, or join a family using your family secret" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCe-0x-RNe">
+                                <rect key="frame" x="159" y="229" width="283" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="283" id="TtN-pq-7zE"/>
+                                    <constraint firstAttribute="height" constant="89" id="jn0-Zz-2Tt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9T-Vk-ylu">
+                                <rect key="frame" x="290" y="404" width="21" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rU0-lj-8tj"/>
+                                    <constraint firstAttribute="width" constant="21" id="u5M-YD-CwU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location Filled-50.png" translatesAutoresizingMaskIntoConstraints="NO" id="tlp-7b-ik4">
+                                <rect key="frame" x="275" y="160" width="50" height="50"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aCe-0x-RNe" firstAttribute="top" secondItem="tlp-7b-ik4" secondAttribute="bottom" constant="19" id="A0a-42-zjU"/>
+                            <constraint firstItem="tlp-7b-ik4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="96" id="Hez-z7-faM"/>
+                            <constraint firstItem="d4E-Yt-8LR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M9x-Nq-tOp"/>
+                            <constraint firstItem="u9T-Vk-ylu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mzy-ft-ixl"/>
+                            <constraint firstItem="aCe-0x-RNe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R2O-Pm-cNY"/>
+                            <constraint firstItem="tlp-7b-ik4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V84-YY-5I2"/>
+                            <constraint firstItem="u9T-Vk-ylu" firstAttribute="top" secondItem="d4E-Yt-8LR" secondAttribute="bottom" constant="33" id="Ykb-jp-zcx"/>
+                            <constraint firstItem="cfq-cA-gtg" firstAttribute="top" secondItem="u9T-Vk-ylu" secondAttribute="bottom" constant="41" id="ZCD-6j-J6l"/>
+                            <constraint firstItem="cfq-cA-gtg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jP7-uk-fTh"/>
+                            <constraint firstItem="d4E-Yt-8LR" firstAttribute="top" secondItem="aCe-0x-RNe" secondAttribute="bottom" constant="23" id="tUV-jv-rjG"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="CheckMate" id="HZe-na-vkO"/>
+                    <connections>
+                        <outlet property="createButton" destination="d4E-Yt-8LR" id="47r-nd-DqW"/>
+                        <outlet property="descriptionLAbel" destination="aCe-0x-RNe" id="pvf-O9-ryU"/>
+                        <outlet property="joinButton" destination="cfq-cA-gtg" id="LoU-gv-HAe"/>
+                        <outlet property="orLabel" destination="u9T-Vk-ylu" id="6sG-k2-LbF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="376" y="350"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Location Filled-50.png" width="50" height="50"/>
+    </resources>
 </document>

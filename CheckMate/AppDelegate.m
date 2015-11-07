@@ -6,9 +6,14 @@
 //  Copyright © 2015 Rwithu Menon. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <trnql/trnql.h>
 
-@interface AppDelegate ()
+#import "AppDelegate.h"
+#import "CMUserTrackingViewController.h"
+
+@interface AppDelegate ()<TrnqlDelegate>
 
 @end
 
@@ -16,7 +21,30 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+//    self.loggedIn = YES;
+    Trnql *trnql = [Trnql sharedInstance];
+    [trnql setAPIKey:@"2fd6f698-1e43-40dc-a054-b45febcd5c8d"];
+    [trnql setDelegate:self];
+    [trnql startAllServices];
+
     // Override point for customization after application launch.
+    [Parse enableLocalDatastore];
+    [Parse setApplicationId:@"XFhZww2w6u8F25XYqxmR9kNNJ1E12xhA6nQAdlUb" clientKey:@"7JnCGflBds32nAr7VUhAf4SkATlKJ6CGAX5o4vJk"];
+    
+    PFACL *defaultACL = [PFACL ACL];
+    
+    // If you would like all objects to be private by default, remove this line.
+    [defaultACL setPublicReadAccess:YES];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+    if (self.loggedIn) {
+        CMUserTrackingViewController *userTrackingView = [[CMUserTrackingViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:userTrackingView];
+        [navController.navigationBar setBarTintColor:[UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f]];
+        navController.navigationBar.translucent = NO;
+        navController.navigationBar.topItem.title = @"CheckMate";
+        [self.window setRootViewController:navController];
+    } 
     return YES;
 }
 
@@ -40,6 +68,26 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)smartAddressChange:(AddressEntry * __nullable)address error:(NSError * __nullable)error {
+    if (self.loggedIn) {
+        NSString *newAddress = [address getAddress];
+        PFUser *currentUser = [PFUser currentUser];
+        currentUser[@"address"] = newAddress;
+        [currentUser save];
+    }
+}
+
+- (void)smartLocationChange:(LocationEntry * __nullable)location error:(NSError * __nullable)error {
+    if (self.loggedIn) {
+        PFUser *currentUser = [PFUser currentUser];
+        CLLocation *locationReceived = [location getLocation];
+        CLLocationCoordinate2D coordinate = locationReceived.coordinate;
+        currentUser[@"latitude"] = [NSString stringWithFormat:@"%f",coordinate.latitude];
+        currentUser[@"longitude"] = [NSString stringWithFormat:@"%f",coordinate.longitude];
+        [currentUser save];
+    }
 }
 
 @end
