@@ -55,8 +55,6 @@
     JSQMessagesBubbleImageFactory *incomingBubbleFactory = [[JSQMessagesBubbleImageFactory alloc] initWithBubbleImage:[UIImage jsq_bubbleRegularStrokedImage] capInsets:UIEdgeInsetsZero];
     bubbleImageIncoming = [incomingBubbleFactory incomingMessagesBubbleImageWithColor:[UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f]];
     
-//    avatarImageBlank = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"chat_blank"] diameter:30.0];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageDelivered:) name:SINCH_MESSAGE_RECIEVED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageDelivered:) name:SINCH_MESSAGE_SENT object:nil];
 }
@@ -99,7 +97,6 @@
         if (!error) {
             for (int i = 0; i < [chatMessageArray count]; i++) {
                 NSMutableDictionary *item = [[NSMutableDictionary alloc] init];
-                //filter user for name
                 NSPredicate *pred = [NSPredicate predicateWithFormat:@"(name like %@)", chatMessageArray[i][@"name"]];
                 NSArray * filteredarray  = [chatMates filteredArrayUsingPredicate:pred];
                 [item setObject:[filteredarray[0] objectId] forKey:@"userId"];
@@ -191,12 +188,8 @@
 
 - (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (indexPath.item % 3 == 0)
-//    {
-        JSQMessage *message = messages[indexPath.item];
-        return [[JSQMessagesTimestampFormatter sharedFormatter] attributedTimestampForDate:message.date];
-//    }
-//    else return nil;
+    JSQMessage *message = messages[indexPath.item];
+    return [[JSQMessagesTimestampFormatter sharedFormatter] attributedTimestampForDate:message.date];
 }
 
 - (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForMessageBubbleTopLabelAtIndexPath:(NSIndexPath *)indexPath
@@ -266,11 +259,6 @@
     } else {
         return kJSQMessagesCollectionViewCellLabelHeightDefault;
     }
-    
-//    if (indexPath.item % 3 == 0)
-//    {
-//    }
-//    else return 0;
 }
 
 - (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView

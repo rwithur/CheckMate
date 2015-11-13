@@ -392,22 +392,17 @@
 				21EC8C611BE88E4F006DC175 /* CMUserTrackingViewController.m */,
 				214EDDA91BF0ADEE006EAF19 /* CMUserTrackingDetailsViewController.h */,
 				214EDDAA1BF0ADEE006EAF19 /* CMUserTrackingDetailsViewController.m */,
-				2193DE7B1BF2E84800EF41CA /* CMAddressPin.h */,
-				2193DE7C1BF2E84800EF41CA /* CMAddressPin.m */,
-				2115BDC91BE6656600DF5D0C /* Main.storyboard */,
-				2115BDCC1BE6656600DF5D0C /* Assets.xcassets */,
-				2115BDCE1BE6656600DF5D0C /* LaunchScreen.storyboard */,
-				2115BDD11BE6656600DF5D0C /* Info.plist */,
-				213EBD201BEE43C000A16A51 /* MBProgressHUD.h */,
-				213EBD211BEE43C000A16A51 /* MBProgressHUD.m */,
 				21EE1F6B1BF46EFC0020FFC2 /* CMGroupChatView.h */,
 				21EE1F6C1BF46EFC0020FFC2 /* CMGroupChatView.m */,
+				2193DE7B1BF2E84800EF41CA /* CMAddressPin.h */,
+				2193DE7C1BF2E84800EF41CA /* CMAddressPin.m */,
 				21EE1F701BF475A10020FFC2 /* CMIncoming.h */,
 				21EE1F711BF475A10020FFC2 /* CMIncoming.m */,
 				21EE1F731BF477BD0020FFC2 /* CMOutgoing.h */,
 				21EE1F741BF477BD0020FFC2 /* CMOutgoing.m */,
-				21EE1F761BF497D80020FFC2 /* JSQSystemSoundPlayer */,
-				21EE1EDE1BF46ED40020FFC2 /* JSQMessagesViewController */,
+				2115BDC91BE6656600DF5D0C /* Main.storyboard */,
+				2115BDCE1BE6656600DF5D0C /* LaunchScreen.storyboard */,
+				21EE1F9B1BF585390020FFC2 /* ThirdParty */,
 				2180F1C21BE7377E000832F2 /* Resources */,
 				2115BDC01BE6656600DF5D0C /* Supporting Files */,
 			);
@@ -417,6 +412,8 @@
 		2115BDC01BE6656600DF5D0C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2115BDCC1BE6656600DF5D0C /* Assets.xcassets */,
+				2115BDD11BE6656600DF5D0C /* Info.plist */,
 				2115BDC11BE6656600DF5D0C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -503,6 +500,7 @@
 		21EE1EDE1BF46ED40020FFC2 /* JSQMessagesViewController */ = {
 			isa = PBXGroup;
 			children = (
+				21EE1F9A1BF5851A0020FFC2 /* New Group */,
 				21EE1EDF1BF46ED40020FFC2 /* Assets */,
 				21EE1EE11BF46ED40020FFC2 /* Categories */,
 				21EE1EF01BF46ED40020FFC2 /* Controllers */,
@@ -668,6 +666,24 @@
 				21EE1F7A1BF497D80020FFC2 /* JSQSystemSoundPlayer.m */,
 			);
 			path = JSQSystemSoundPlayer;
+			sourceTree = "<group>";
+		};
+		21EE1F9A1BF5851A0020FFC2 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		21EE1F9B1BF585390020FFC2 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				213EBD201BEE43C000A16A51 /* MBProgressHUD.h */,
+				213EBD211BEE43C000A16A51 /* MBProgressHUD.m */,
+				21EE1F761BF497D80020FFC2 /* JSQSystemSoundPlayer */,
+				21EE1EDE1BF46ED40020FFC2 /* JSQMessagesViewController */,
+			);
+			name = ThirdParty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

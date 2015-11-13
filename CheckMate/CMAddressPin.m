@@ -9,7 +9,9 @@
 #import "CMAddressPin.h"
 
 @implementation CMAddressPin
+
 @synthesize coordinate;
+
 - (NSString *)subtitle{
     return nil;
 }

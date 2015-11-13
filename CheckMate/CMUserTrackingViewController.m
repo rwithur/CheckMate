@@ -30,28 +30,32 @@
 @implementation CMUserTrackingViewController
 
 - (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self setUpViews];
+}
+
+- (void)setUpViews {
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.title = @"Family";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f]}];
-
+    
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+    
     [self.familyTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-
+    
     self.inviteButton.backgroundColor = [UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f];
     [self.inviteButton setTitleColor:[UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f] forState:UIControlStateNormal];
     self.inviteButton.layer.cornerRadius = 15;
     self.inviteButton.clipsToBounds = YES;
+    
     [NSTimer scheduledTimerWithTimeInterval:180.0 target:self selector:@selector(fetchObjects) userInfo:nil repeats:YES];
     [self populateDataSource];
 }
 
-- (void) fetchObjects {
+- (void)fetchObjects {
     __block BOOL needsReload;
     for (PFUser *user in [self.familyMembers mutableCopy]) {
         [user fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
@@ -65,7 +69,7 @@
     }
 }
 
-- (void) populateDataSource {
+- (void)populateDataSource {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.currentUser = appDelegate.currentUser;
     

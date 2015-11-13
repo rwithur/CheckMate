@@ -35,16 +35,16 @@
 
 @implementation CMLoginViewController
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f]];
-    self.navigationController.navigationBar.translucent = NO;
+    [self setUpViews];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
+- (void)setUpViews {
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f]];
+    self.navigationController.navigationBar.translucent = NO;
+    
     self.descriptionLAbel.textColor = [UIColor colorWithRed:0.541f green:0.541f blue:0.541f alpha:1.00f];
     self.orLabel.textColor = [UIColor colorWithRed:0.541f green:0.541f blue:0.541f alpha:1.00f];
     
@@ -64,83 +64,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)createTapped:(id)sender {
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@""
-                                  message:@"Enter the details"
-                                  preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                               handler:^(UIAlertAction * action) {
-                                                   
-                                                   self.familyName = ((UITextField *)[alert.textFields objectAtIndex:0]).text;
-                                                   self.adminName = ((UITextField *)[alert.textFields objectAtIndex:1]).text;
-                                                   [self generateSecretKeyWithCompletionBlock:^(BOOL success) {
-                                                       if (success) {
-                                                           if([self signUpUserWithSecret]){
-                                                               PFObject *familyObject = [PFObject objectWithClassName:@"Family"];
-                                                               familyObject[@"name"] = self.familyName;
-                                                               familyObject[@"adminName"] = self.adminName;
-                                                               familyObject[@"secret"] = self.secret;
-                                                               [familyObject saveInBackground];
-                                                           }
-                                                       } else {
-                                                           UIAlertController * alert=   [UIAlertController
-                                                                                         alertControllerWithTitle:@"Error"
-                                                                                         message:@"An error occured.. Please try again"
-                                                                                         preferredStyle:UIAlertControllerStyleAlert];
-                                                           UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:
-                                                                                ^(UIAlertAction * action) {
-                                                                                    [alert dismissViewControllerAnimated:YES completion:nil];
-                                                                                }];
-                                                           [alert addAction:ok];
-                                                           [self presentViewController:alert animated:YES completion:nil];
-                                                       }
-                                                   }];
-                                                   
-                                               }];
-    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
-                                                   handler:^(UIAlertAction * action) {
-                                                       [alert dismissViewControllerAnimated:YES completion:nil];
-                                                   }];
-    
-    [alert addAction:ok];
-    [alert addAction:cancel];
-    
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"Family name";
-    }];
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"Your name";
-    }];
-    [self presentViewController:alert animated:YES completion:nil];
-
-}
-
-- (IBAction)joinTapped:(id)sender {
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Login"
-                                  message:@"Enter the family secret"
-                                  preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                               handler:^(UIAlertAction * action) {
-                                                   [self searchForFamilyWithSecretKey:((UITextField *)[alert.textFields objectAtIndex:0]).text];
-                                               }];
-    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
-                                                   handler:^(UIAlertAction * action) {
-                                                       [alert dismissViewControllerAnimated:YES completion:nil];
-                                                   }];
-    [alert addAction:ok];
-    [alert addAction:cancel];
-    
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"Secret";
-        textField.keyboardType = UIKeyboardTypeNumberPad;
-    }];
-    [self presentViewController:alert animated:YES completion:nil];
-    
-}
-
-- (void)generateSecretKeyWithCompletionBlock: (compBlock)block{
+- (void)generateSecretKeyWithCompletionBlock:(compBlock)block {
     self.secret = [NSString stringWithFormat:@"%u", arc4random_uniform(8999) + 1000];
     PFQuery *query = [PFQuery queryWithClassName:@"Family"];
     [query whereKey:@"secret" equalTo:[NSString stringWithFormat:@"%@",self.secret]];
@@ -221,7 +145,7 @@
     
 }
 
-- (BOOL) signUpUserWithSecret{
+- (BOOL)signUpUserWithSecret {
     __block BOOL success;
     
     PFUser *user = [PFUser user];
@@ -262,7 +186,7 @@
     return success;
 }
 
-- (void) familyLimitWithSecret:(NSString *)secret ExceededWithCompletionBlock: (compBlock) block {
+- (void)familyLimitWithSecret:(NSString *)secret ExceededWithCompletionBlock:(compBlock)block {
     PFQuery *query = [PFUser query];
     [query whereKey:@"secret" equalTo:secret];
     
@@ -275,11 +199,84 @@
     }];
 }
 
-- (void)navigateToHomePageForUser: (PFUser*) user {
+- (void)navigateToHomePageForUser:(PFUser*)user {
     
     UIStoryboard *storyBoard = [self storyboard];
     CMUserTrackingViewController *userTrackingView  = [storyBoard instantiateViewControllerWithIdentifier:@"CMUserTrackingViewController"];
     [self.navigationController pushViewController: userTrackingView animated:YES];
 }
 
+- (IBAction)createTapped:(id)sender {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@""
+                                  message:@"Enter the details"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * action) {
+                                                   
+                                                   self.familyName = ((UITextField *)[alert.textFields objectAtIndex:0]).text;
+                                                   self.adminName = ((UITextField *)[alert.textFields objectAtIndex:1]).text;
+                                                   [self generateSecretKeyWithCompletionBlock:^(BOOL success) {
+                                                       if (success) {
+                                                           if([self signUpUserWithSecret]){
+                                                               PFObject *familyObject = [PFObject objectWithClassName:@"Family"];
+                                                               familyObject[@"name"] = self.familyName;
+                                                               familyObject[@"adminName"] = self.adminName;
+                                                               familyObject[@"secret"] = self.secret;
+                                                               [familyObject saveInBackground];
+                                                           }
+                                                       } else {
+                                                           UIAlertController * alert=   [UIAlertController
+                                                                                         alertControllerWithTitle:@"Error"
+                                                                                         message:@"An error occured.. Please try again"
+                                                                                         preferredStyle:UIAlertControllerStyleAlert];
+                                                           UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:
+                                                                                ^(UIAlertAction * action) {
+                                                                                    [alert dismissViewControllerAnimated:YES completion:nil];
+                                                                                }];
+                                                           [alert addAction:ok];
+                                                           [self presentViewController:alert animated:YES completion:nil];
+                                                       }
+                                                   }];
+                                                   
+                                               }];
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                                                       [alert dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+    
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Family name";
+    }];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Your name";
+    }];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (IBAction)joinTapped:(id)sender {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Login"
+                                  message:@"Enter the family secret"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * action) {
+                                                   [self searchForFamilyWithSecretKey:((UITextField *)[alert.textFields objectAtIndex:0]).text];
+                                               }];
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                                                       [alert dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Secret";
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+    }];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 @end
