@@ -7,10 +7,10 @@
 //
 
 #import "CMGroupChatView.h"
-#import "CMIncoming.h"
-#import "CMOutgoing.h"
 
 #import "Config.h"
+#import "CMIncoming.h"
+#import "CMOutgoing.h"
 #import "MBProgressHUD.h"
 
 #import "JSQMessagesViewController/Model/JSQMessagesBubbleImage.h"
@@ -50,10 +50,10 @@
     messages = [[NSMutableArray alloc] init];
     chatMates = [[NSMutableArray alloc] init];
     
-    JSQMessagesBubbleImageFactory *outgoingBubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
-    bubbleImageOutgoing = [outgoingBubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f]];
-    JSQMessagesBubbleImageFactory *incomingBubbleFactory = [[JSQMessagesBubbleImageFactory alloc] initWithBubbleImage:[UIImage jsq_bubbleRegularStrokedImage] capInsets:UIEdgeInsetsZero];
-    bubbleImageIncoming = [incomingBubbleFactory incomingMessagesBubbleImageWithColor:[UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f]];
+    JSQMessagesBubbleImageFactory *outgoingBubbleFactory = [[JSQMessagesBubbleImageFactory alloc] initWithBubbleImage:[UIImage jsq_bubbleRegularStrokedImage] capInsets:UIEdgeInsetsZero];
+    bubbleImageOutgoing = [outgoingBubbleFactory outgoingMessagesBubbleImageWithColor:CHECKMATE_THEME_COLOUR];
+    JSQMessagesBubbleImageFactory *incomingBubbleFactory = [[JSQMessagesBubbleImageFactory alloc] initWithBubbleImage:[UIImage jsq_bubbleCompactImage] capInsets:UIEdgeInsetsZero];
+    bubbleImageIncoming = [incomingBubbleFactory incomingMessagesBubbleImageWithColor:CHECKMATE_THEME_COLOUR];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageDelivered:) name:SINCH_MESSAGE_RECIEVED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageDelivered:) name:SINCH_MESSAGE_SENT object:nil];
@@ -84,6 +84,9 @@
             NSLog(@"Error: %@", error.description);
         }
     }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });
 }
 
 - (void) loadMessages {
@@ -113,6 +116,9 @@
             [self finishReceivingMessage];
         }
     }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });
 }
 
 -(void) insertMessage: (NSDictionary *) item {
@@ -224,7 +230,7 @@
 
 - (UICollectionViewCell *)collectionView:(JSQMessagesCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIColor *color = [self outgoing:items[indexPath.item]] ? [UIColor whiteColor] : [UIColor blackColor];
+    UIColor *color = [self outgoing:items[indexPath.item]] ? CHECKMATE_TITLE_COLOUR : [UIColor whiteColor];
     
     JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
     cell.textView.textColor = color;

@@ -6,12 +6,11 @@
 //  Copyright © 2015 Rwithu Menon. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
-#import <trnql/trnql.h>
 #import "AppDelegate.h"
+
 #import "Config.h"
 #import "CMUserTrackingViewController.h"
+#import <trnql/trnql.h>
 
 @interface AppDelegate ()<TrnqlDelegate> {
     BOOL saveCalled;
@@ -43,7 +42,7 @@
                                             forKeyPath:@"loggedIn"
                                                options:NSKeyValueObservingOptionNew
                                                context:NULL];
-    NSLog(@"logged in : %d, current usr: %@",self.loggedIn,[PFUser currentUser]);
+
     //Check if already logged in
     if (self.loggedIn){
         self.currentUser = [PFUser currentUser];
@@ -121,7 +120,7 @@
     CMUserTrackingViewController *userTrackingView  = [mainStoryboard instantiateViewControllerWithIdentifier:@"CMUserTrackingViewController"];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:userTrackingView];
-    [navController.navigationBar setBarTintColor:[UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f]];
+    [navController.navigationBar setBarTintColor:CHECKMATE_THEME_COLOUR];
     navController.navigationBar.translucent = NO;
     navController.navigationBar.topItem.title = @"CheckMate";
     [self.window setRootViewController:navController];
@@ -243,6 +242,14 @@
         if (!error) {
             if ([messageArray count] > 0) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:SINCH_MESSAGE_SENT object:self userInfo:@{@"message" : [messageArray firstObject]}];
+                UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+                if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
+                {
+                    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+                    localNotification.alertBody =[NSString stringWithFormat: @"%@: %@", [[messageArray firstObject][@"name"] capitalizedString],[messageArray firstObject][@"text"]];
+                    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+                    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+                }
             } else {
                 PFQuery *query = [PFUser query];
                 [query whereKey:@"username" equalTo:[message senderId]];
@@ -257,6 +264,7 @@
                         messageObject[@"timestamp"] = [message timestamp];
                         messageObject[@"secret"] = self.currentUser[@"secret"];
                         [[NSNotificationCenter defaultCenter] postNotificationName:SINCH_MESSAGE_SENT object:self userInfo:@{@"message" : messageObject}];
+                        
                     }
                 }];
             }

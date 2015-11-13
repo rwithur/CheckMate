@@ -24,4 +24,8 @@
 #define SINCH_MESSAGE_DELIVERED @"SINCH_MESSAGE_DELIVERED"
 #define SINCH_MESSAGE_FAILED @"SINCH_MESSAGE_DELIVERED"
 
+#define CHECKMATE_THEME_COLOUR [UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f]
+#define CHECKMATE_TITLE_COLOUR [UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f] 
+#define CHECKMATE_DESCRIPTION_COLOUR [UIColor colorWithRed:0.541f green:0.541f blue:0.541f alpha:1.00f]
+
 #endif /* Config_h */

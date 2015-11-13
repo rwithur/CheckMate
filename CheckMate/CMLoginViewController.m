@@ -7,11 +7,13 @@
 //
 
 #import "CMLoginViewController.h"
+
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
-#import "CMUserTrackingViewController.h"
-#import "AppDelegate.h"
 
+#import "AppDelegate.h"
+#import "Config.h"
+#import "CMUserTrackingViewController.h"
 
 @interface CMLoginViewController ()
 
@@ -42,19 +44,19 @@
 }
 
 - (void)setUpViews {
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f]];
+    [self.navigationController.navigationBar setBarTintColor:CHECKMATE_THEME_COLOUR];
     self.navigationController.navigationBar.translucent = NO;
     
-    self.descriptionLAbel.textColor = [UIColor colorWithRed:0.541f green:0.541f blue:0.541f alpha:1.00f];
-    self.orLabel.textColor = [UIColor colorWithRed:0.541f green:0.541f blue:0.541f alpha:1.00f];
+    self.descriptionLAbel.textColor = CHECKMATE_DESCRIPTION_COLOUR;
+    self.orLabel.textColor = CHECKMATE_DESCRIPTION_COLOUR;
     
-    self.createButton.backgroundColor = [UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f];
-    [self.createButton setTitleColor:[UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f] forState:UIControlStateNormal];
+    self.createButton.backgroundColor = CHECKMATE_THEME_COLOUR;
+    [self.createButton setTitleColor:CHECKMATE_TITLE_COLOUR forState:UIControlStateNormal];
     self.createButton.layer.cornerRadius = 15;
     self.createButton.clipsToBounds = YES;
     
-    self.joinButton.backgroundColor = [UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f];
-    [self.joinButton setTitleColor:[UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f] forState:UIControlStateNormal];
+    self.joinButton.backgroundColor = CHECKMATE_THEME_COLOUR;
+    [self.joinButton setTitleColor:CHECKMATE_TITLE_COLOUR forState:UIControlStateNormal];
     self.joinButton.layer.cornerRadius = 15;
     self.joinButton.clipsToBounds = YES;
 }

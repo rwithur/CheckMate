@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
 
 @interface CMUserTrackingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 

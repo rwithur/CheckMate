@@ -7,7 +7,10 @@
 //
 
 #import "CMUserTrackingDetailsViewController.h"
+
 #import <MapKit/MapKit.h> 
+
+#import "Config.h"
 #import "CMAddressPin.h"
 
 @interface CMUserTrackingDetailsViewController () <UIActionSheetDelegate>
@@ -35,12 +38,12 @@
 }
 
 -(void) configureView {
-    self.nameLabel.textColor = [UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f];
-    self.trackingDetailsLabel.textColor = [UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f];
-    self.lastUpdatedLabel.textColor = [UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f];
+    self.nameLabel.textColor = CHECKMATE_TITLE_COLOUR;
+    self.trackingDetailsLabel.textColor = CHECKMATE_TITLE_COLOUR;
+    self.lastUpdatedLabel.textColor = CHECKMATE_TITLE_COLOUR;
 
     self.nameLabel.text = [self.currentUser[@"name"] capitalizedString];
-    self.trackingDetailsLabel.text = [[NSString stringWithFormat:@"Address: %@\nActivity: %@",self.currentUser[@"address"]?self.currentUser[@"address"]:@"Not updated",self.currentUser[@"activity"]?self.currentUser[@"activity"]:@"Not updated"] capitalizedString];
+    self.trackingDetailsLabel.text = [[NSString stringWithFormat:@"%@\nActivity: %@",self.currentUser[@"address"]?self.currentUser[@"address"]:@" ",self.currentUser[@"activity"]?self.currentUser[@"activity"]:@"Not updated"] capitalizedString];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"d MMM yyyy HH:mm:ss z"];
@@ -62,8 +65,18 @@
 }
 
 - (IBAction)openInMapsPressed:(id)sender {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Open in Maps" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Apple Maps",@"Google Maps", nil];
-    [sheet showInView:self.view];
+    if (!(self.currentUser[@"latitude"] || self.currentUser[@"longitude"])) {
+        UIAlertController *alert = [UIAlertController
+                                    alertControllerWithTitle:@""
+                                    message:@"Location is not updated"
+                                    preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Open in Maps" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Apple Maps",@"Google Maps", nil];
+        [sheet showInView:self.view];
+    }
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

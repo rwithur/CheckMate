@@ -7,11 +7,15 @@
 //
 
 #import "CMUserTrackingViewController.h"
-#import "MBProgressHUD.h"
-#import "CMUserTrackingDetailsViewController.h"
+
+#import <Parse/Parse.h>
+
 #import "AppDelegate.h"
+#import "Config.h"
 #import "CMGroupChatView.h"
 #import "CMLoginViewController.h"
+#import "CMUserTrackingDetailsViewController.h"
+#import "MBProgressHUD.h"
 
 @interface CMUserTrackingViewController ()
 
@@ -39,15 +43,15 @@
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.title = @"Family";
     [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f]}];
+     @{NSForegroundColorAttributeName:CHECKMATE_TITLE_COLOUR}];
     
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f];
+    self.navigationController.navigationBar.tintColor = CHECKMATE_TITLE_COLOUR;
+    self.navigationItem.rightBarButtonItem.tintColor = CHECKMATE_TITLE_COLOUR;
     
     [self.familyTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     
-    self.inviteButton.backgroundColor = [UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f];
-    [self.inviteButton setTitleColor:[UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f] forState:UIControlStateNormal];
+    self.inviteButton.backgroundColor = CHECKMATE_THEME_COLOUR;
+    [self.inviteButton setTitleColor:CHECKMATE_TITLE_COLOUR forState:UIControlStateNormal];
     self.inviteButton.layer.cornerRadius = 15;
     self.inviteButton.clipsToBounds = YES;
     
@@ -113,7 +117,7 @@
         
     PFUser *user = [self.familyMembers objectAtIndex:indexPath.row];
     cell.textLabel.text = [user[@"name"] capitalizedString];
-    cell.detailTextLabel.text = user[@"address"]?user[@"address"]:@"Not updated";
+    cell.detailTextLabel.text = user[@"address"]?user[@"address"]:@"";
     return cell;
 }
 
