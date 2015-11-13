@@ -96,6 +96,7 @@
 		21EE1F871BF497D80020FFC2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21EE1F781BF497D80020FFC2 /* Info.plist */; };
 		21EE1F881BF497D80020FFC2 /* JSQSystemSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21EE1F7A1BF497D80020FFC2 /* JSQSystemSoundPlayer.m */; };
 		21EE1F991BF5198B0020FFC2 /* Chat Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EE1F981BF5198B0020FFC2 /* Chat Filled-25.png */; };
+		21EE1F9D1BF5DC5C0020FFC2 /* 1447371597_Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EE1F9C1BF5DC5C0020FFC2 /* 1447371597_Map.png */; };
 		21EE9DE21BF0E87400A86109 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EE9DE11BF0E87400A86109 /* CoreData.framework */; };
 		21EE9DE41BF0E89500A86109 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EE9DE31BF0E89500A86109 /* CoreMedia.framework */; };
 		21EE9DE61BF0E89A00A86109 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EE9DE51BF0E89A00A86109 /* Accelerate.framework */; };
@@ -290,6 +291,7 @@
 		21EE1F791BF497D80020FFC2 /* JSQSystemSoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQSystemSoundPlayer.h; sourceTree = "<group>"; };
 		21EE1F7A1BF497D80020FFC2 /* JSQSystemSoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQSystemSoundPlayer.m; sourceTree = "<group>"; };
 		21EE1F981BF5198B0020FFC2 /* Chat Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chat Filled-25.png"; sourceTree = "<group>"; };
+		21EE1F9C1BF5DC5C0020FFC2 /* 1447371597_Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1447371597_Map.png; sourceTree = "<group>"; };
 		21EE9DE11BF0E87400A86109 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		21EE9DE31BF0E89500A86109 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		21EE9DE51BF0E89A00A86109 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -493,6 +495,7 @@
 			isa = PBXGroup;
 			children = (
 				21EE1F981BF5198B0020FFC2 /* Chat Filled-25.png */,
+				21EE1F9C1BF5DC5C0020FFC2 /* 1447371597_Map.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -798,6 +801,7 @@
 				2115BDD01BE6656600DF5D0C /* LaunchScreen.storyboard in Resources */,
 				21EE1F991BF5198B0020FFC2 /* Chat Filled-25.png in Resources */,
 				2115BDCD1BE6656600DF5D0C /* Assets.xcassets in Resources */,
+				21EE1F9D1BF5DC5C0020FFC2 /* 1447371597_Map.png in Resources */,
 				21EE1F601BF46ED40020FFC2 /* JSQMessagesCollectionViewCellOutgoing.xib in Resources */,
 				21EE1F5E1BF46ED40020FFC2 /* JSQMessagesCollectionViewCellIncoming.xib in Resources */,
 				2115BDCB1BE6656600DF5D0C /* Main.storyboard in Resources */,

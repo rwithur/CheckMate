@@ -126,7 +126,7 @@
                         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                                    handler:^(UIAlertAction * action) {
                                                                        self.adminName = ((UITextField *)[alert.textFields objectAtIndex:0]).text;
-                                                                       [self signUpUserWithSecret];
+                                                                       [self signUpUserWithCompletionBlock:nil];
                                                                    }];
                         UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
                                                                        handler:^(UIAlertAction * action) {
@@ -147,8 +147,7 @@
     
 }
 
-- (BOOL)signUpUserWithSecret {
-    __block BOOL success;
+- (void)signUpUserWithCompletionBlock:(compBlock)compBlock {
     
     PFUser *user = [PFUser user];
     user.username = [NSString stringWithFormat:@"%@%@%@",self.adminName,self.familyName,self.secret];
@@ -157,7 +156,6 @@
     user[@"name"] = self.adminName;
     user[@"secret"] = self.secret;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        success = succeeded;
         if (!error) {
             [self navigateToHomePageForUser: user];
             
@@ -169,6 +167,9 @@
             
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             [appDelegate initSinchClient:user[@"username"]];
+            if (compBlock) {
+                compBlock(YES);
+            }
             
         } else {
             NSString *errorString = [error userInfo][@"error"];   // Show the errorString somewhere and let the user try again.
@@ -183,9 +184,9 @@
                                  }];
             [alert addAction:ok];
             [self presentViewController:alert animated:YES completion:nil];
+            compBlock(NO);
         }
     }];
-    return success;
 }
 
 - (void)familyLimitWithSecret:(NSString *)secret ExceededWithCompletionBlock:(compBlock)block {
@@ -220,13 +221,15 @@
                                                    self.adminName = ((UITextField *)[alert.textFields objectAtIndex:1]).text;
                                                    [self generateSecretKeyWithCompletionBlock:^(BOOL success) {
                                                        if (success) {
-                                                           if([self signUpUserWithSecret]){
-                                                               PFObject *familyObject = [PFObject objectWithClassName:@"Family"];
-                                                               familyObject[@"name"] = self.familyName;
-                                                               familyObject[@"adminName"] = self.adminName;
-                                                               familyObject[@"secret"] = self.secret;
-                                                               [familyObject saveInBackground];
-                                                           }
+                                                           [self signUpUserWithCompletionBlock:^(BOOL success) {
+                                                               if (success) {
+                                                                   PFObject *familyObject = [PFObject objectWithClassName:@"Family"];
+                                                                   familyObject[@"name"] = self.familyName;
+                                                                   familyObject[@"adminName"] = self.adminName;
+                                                                   familyObject[@"secret"] = self.secret;
+                                                                   [familyObject saveInBackground];
+                                                               }
+                                                           }];
                                                        } else {
                                                            UIAlertController * alert=   [UIAlertController
                                                                                          alertControllerWithTitle:@"Error"

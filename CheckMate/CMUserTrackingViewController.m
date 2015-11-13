@@ -25,6 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *inviteButton;
 @property (weak, nonatomic) IBOutlet UITableView *familyTableView;
+@property (strong, nonatomic) UIView *noMembersView;
 
 - (IBAction)inviteButtonTapped:(id)sender;
 - (IBAction)chatPressed:(id)sender;
@@ -40,6 +41,27 @@
 }
 
 - (void)setUpViews {
+    self.noMembersView = [[UIView alloc] initWithFrame:self.view.frame];
+    self.noMembersView.backgroundColor = [UIColor clearColor];
+    
+    UILabel *matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
+    matchesLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
+    matchesLabel.numberOfLines = 2;
+    matchesLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    matchesLabel.shadowColor = [UIColor lightTextColor];
+    matchesLabel.textColor = CHECKMATE_DESCRIPTION_COLOUR;
+    matchesLabel.shadowOffset = CGSizeMake(0, 1);
+    matchesLabel.backgroundColor = [UIColor clearColor];
+    matchesLabel.textAlignment =  NSTextAlignmentCenter;
+    
+    //Here is the text for when there are no results
+    matchesLabel.text = @"No family members added. Please invite your family members to join.";
+    
+    
+    self.noMembersView.hidden = YES;
+    [self.noMembersView addSubview:matchesLabel];
+    [self.familyTableView insertSubview:self.noMembersView belowSubview:self.familyTableView];
+    
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.title = @"Family";
     [self.navigationController.navigationBar setTitleTextAttributes:
@@ -106,6 +128,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.familyMembers.count) {
+        self.noMembersView.hidden = YES;
+    } else {
+        self.noMembersView.hidden = NO;
+    }
     return self.familyMembers.count;
 }
 

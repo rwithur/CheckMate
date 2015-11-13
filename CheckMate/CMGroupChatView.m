@@ -77,16 +77,10 @@
         if (!error) {
             chatMates = [NSMutableArray arrayWithArray:chatMateArray];
             [self loadMessages];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-            });
         } else {
             NSLog(@"Error: %@", error.description);
         }
     }];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-    });
 }
 
 - (void) loadMessages {
@@ -95,7 +89,6 @@
     PFQuery *query = [PFQuery queryWithClassName:@"ChatMessage"];
     [query whereKey:@"secret" equalTo:self.currentUser[@"secret"]];
     [query orderByDescending:@"timestamp"];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [query findObjectsInBackgroundWithBlock:^(NSArray *chatMessageArray, NSError *error) {
         if (!error) {
             for (int i = 0; i < [chatMessageArray count]; i++) {
@@ -116,9 +109,6 @@
             [self finishReceivingMessage];
         }
     }];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-    });
 }
 
 -(void) insertMessage: (NSDictionary *) item {

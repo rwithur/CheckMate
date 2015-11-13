@@ -59,6 +59,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="Join a family"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="135" y="466" width="130" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="joinTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9rJ-3I-szi"/>
                                 </connections>
@@ -72,6 +75,9 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="59" y="229" width="283" height="89"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9T-Vk-ylu">
                                 <rect key="frame" x="290" y="404" width="21" height="21"/>
@@ -82,9 +88,15 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="190" y="404" width="21" height="21"/>
+                                </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location Filled-50.png" translatesAutoresizingMaskIntoConstraints="NO" id="tlp-7b-ik4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1447371597_Map.png" translatesAutoresizingMaskIntoConstraints="NO" id="tlp-7b-ik4">
                                 <rect key="frame" x="275" y="160" width="50" height="50"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="175" y="160" width="50" height="50"/>
+                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4E-Yt-8LR">
                                 <rect key="frame" x="249" y="341" width="103" height="30"/>
@@ -97,6 +109,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="Create a family"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="135" y="341" width="130" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="createTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zBn-XW-xdu"/>
                                 </connections>
@@ -477,7 +492,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1447371597_Map.png" width="128" height="128"/>
         <image name="Chat Filled-25.png" width="25" height="25"/>
-        <image name="Location Filled-50.png" width="50" height="50"/>
     </resources>
 </document>
