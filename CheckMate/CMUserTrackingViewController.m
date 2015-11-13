@@ -7,43 +7,88 @@
 //
 
 #import "CMUserTrackingViewController.h"
+#import "MBProgressHUD.h"
+#import "CMUserTrackingDetailsViewController.h"
+#import "AppDelegate.h"
+#import "CMGroupChatView.h"
+#import "CMLoginViewController.h"
 
 @interface CMUserTrackingViewController ()
 
+@property (strong, nonatomic) PFUser *currentUser;
 @property (strong, nonatomic) NSArray *familyMembers;
+@property (strong, nonatomic) PFUser *selectedFamilyMember;
+
+@property (weak, nonatomic) IBOutlet UIButton *inviteButton;
+@property (weak, nonatomic) IBOutlet UITableView *familyTableView;
+
+- (IBAction)inviteButtonTapped:(id)sender;
+- (IBAction)chatPressed:(id)sender;
 
 @end
 
 @implementation CMUserTrackingViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-//    [self.navigationController.navigationBar setHidden: NO];
-//    [self adjustNavBarOrigin];
+- (void) viewWillAppear:(BOOL)animated {
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.title = @"Family";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f]}];
 
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.familyTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
 
-    self.currentUser = [PFUser currentUser];
+    self.inviteButton.backgroundColor = [UIColor colorWithRed:0.416f green:0.800f blue:0.796f alpha:1.00f];
+    [self.inviteButton setTitleColor:[UIColor colorWithRed:0.125f green:0.373f blue:0.353f alpha:1.00f] forState:UIControlStateNormal];
+    self.inviteButton.layer.cornerRadius = 15;
+    self.inviteButton.clipsToBounds = YES;
+    [NSTimer scheduledTimerWithTimeInterval:180.0 target:self selector:@selector(fetchObjects) userInfo:nil repeats:YES];
+    [self populateDataSource];
+}
+
+- (void) fetchObjects {
+    __block BOOL needsReload;
+    for (PFUser *user in [self.familyMembers mutableCopy]) {
+        [user fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            if([user updatedAt]!=[object updatedAt]) {
+                needsReload = YES;
+            }
+        }];
+        if (needsReload) {
+            break;
+        }
+    }
+}
+
+- (void) populateDataSource {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.currentUser = appDelegate.currentUser;
+    
     PFQuery *query = [PFUser query];
     [query whereKey:@"secret" equalTo:self.currentUser[@"secret"]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        self.familyMembers = objects;
-        [self.tableView reloadData];
-    }];
+    [query whereKey:@"username" notEqualTo:self.currentUser[@"username"]];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+            self.familyMembers = objects;
+            [self.familyTableView reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
+
+        }];
+    });
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)adjustNavBarOrigin
-{
-    CGRect r = self.navigationController.navigationBar.frame;
-    r.origin = CGPointMake(0, 20);  // 20 is the height of the status bar
-    self.navigationController.navigationBar.frame = r;
 }
 
 #pragma mark - Table view data source
@@ -63,75 +108,68 @@
                                reuseIdentifier:@"Cell"];
         
     PFUser *user = [self.familyMembers objectAtIndex:indexPath.row];
-    cell.textLabel.text = user[@"name"];
-    cell.detailTextLabel.text = user[@"address"];
+    cell.textLabel.text = [user[@"name"] capitalizedString];
+    cell.detailTextLabel.text = user[@"address"]?user[@"address"]:@"Not updated";
     return cell;
 }
 
- 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedFamilyMember = [self.familyMembers objectAtIndex:indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"showTrackingDetailsSegue" sender:self];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    CMUserTrackingDetailsViewController *vc = [segue destinationViewController];
+    vc.currentUser = self.selectedFamilyMember;
 }
-*/
 
-//#pragma mark - TRNQL Delegate
-//- (void)smartAddressChange:(AddressEntry * __nullable)address error:(NSError * __nullable)error{
-//    NSString *addressReceived = [address getAddress];
-//    self.currentUser[@"address"] = addressReceived;
-//    [self.tableView reloadData];
-//}
-//
-//- (void)smartLocationChange:(LocationEntry * __nullable)location error:(NSError * __nullable)error {
-//    NSLog(@"%@",error);
-//    PFQuery *query = [PFUser query];
-//    [query whereKey:@"username" equalTo:self.currentUser[@"username"]];
-//    NSArray *array = [[NSArray alloc]init];
-//    array = [query findObjects];
-//    PFUser *user = [array firstObject];
-//    CLLocation *locationReceived = [location getLocation];
-//    CLLocationCoordinate2D coordinate = locationReceived.coordinate;
-//    user[@"latitude"] = [NSString stringWithFormat:@"%f",coordinate.latitude];
-//    user[@"longitude"] = [NSString stringWithFormat:@"%f",coordinate.longitude];
-//    [user save];
-//}
+
+- (IBAction)inviteButtonTapped:(id)sender {
+    [[CMLoginViewController new] familyLimitWithSecret:self.currentUser[@"secret"] ExceededWithCompletionBlock:^(BOOL success) {
+        if (success) {
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@"Error"
+                                          message:@"Family already has 10 members"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:
+                                 ^(UIAlertAction * action) {
+                                     [alert dismissViewControllerAnimated:YES completion:nil];
+                                 }];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            NSURL *whatsappURL = [NSURL URLWithString:[self composeMessage]];
+            if ([[UIApplication sharedApplication] canOpenURL: whatsappURL]) {
+                [[UIApplication sharedApplication] openURL: whatsappURL];
+            } else {
+                UIAlertController *alert = [UIAlertController
+                                            alertControllerWithTitle:@""
+                                            message:@"WhatsApp is not installed.. Please install and try again.."
+                                            preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+                
+            }
+        }
+    }];
+}
+
+- (IBAction)chatPressed:(id)sender {
+    CMGroupChatView *chatVC = [[CMGroupChatView alloc] init];
+    chatVC.currentUser = self.currentUser;
+        [self.navigationController pushViewController:chatVC animated:NO];
+}
+
+- (NSString *)composeMessage {
+    NSString *message= [NSString stringWithFormat:@"whatsapp://send?text=Hey, I just started using the app CheckMate. Join the family that will help us stay in the loop 24/7. Use our secret code %@. Get the app and join me through....",self.currentUser[@"secret"]];
+    message=[NSString stringWithFormat:@"%@",[message stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return message;
+}
 
 @end

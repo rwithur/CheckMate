@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface CMUserTrackingViewController : UITableViewController
+@interface CMUserTrackingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
-@property (strong, nonatomic) PFUser *currentUser;
 
 @end

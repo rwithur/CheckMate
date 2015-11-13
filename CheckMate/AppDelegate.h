@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Sinch/Sinch.h>
+#import <Parse/Parse.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,SINClientDelegate,SINMessageClientDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (assign) BOOL loggedIn;
+@property (strong, nonatomic) PFUser* currentUser;
+- (void)initSinchClient:(NSString*)userId;
+- (void)sendTextMessage:(NSString *)messageText toRecipients:(NSArray *)recipientIDs;
 
 @end
 

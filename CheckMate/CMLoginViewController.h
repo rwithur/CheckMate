@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^compBlock)(BOOL success);
 
 @interface CMLoginViewController : UIViewController
 
+- (void) familyLimitWithSecret:(NSString *)secret ExceededWithCompletionBlock: (compBlock) block;
 @end
