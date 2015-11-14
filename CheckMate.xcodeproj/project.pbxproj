@@ -171,18 +171,18 @@
 		2115BE171BE67DFD00DF5D0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2125772E1BF20EF5005B0D46 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		212577381BF220E4005B0D46 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
-		2125773A1BF226E6005B0D46 /* Sinch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sinch.framework; sourceTree = "<group>"; };
-		213EBD111BEC91C700A16A51 /* trnql.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = trnql.framework; sourceTree = "<group>"; };
+		2125773A1BF226E6005B0D46 /* Sinch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sinch.framework; path = ../../../../MyApps/CheckMate/CheckMate/ThirdParty/Sinch.framework; sourceTree = DEVELOPER_DIR; };
+		213EBD111BEC91C700A16A51 /* trnql.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = trnql.framework; path = CheckMate/ThirdParty/trnql.framework; sourceTree = "<group>"; };
 		213EBD201BEE43C000A16A51 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		213EBD211BEE43C000A16A51 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		214EDDA91BF0ADEE006EAF19 /* CMUserTrackingDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMUserTrackingDetailsViewController.h; sourceTree = "<group>"; };
 		214EDDAA1BF0ADEE006EAF19 /* CMUserTrackingDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMUserTrackingDetailsViewController.m; sourceTree = "<group>"; };
 		214EDDAC1BF0AF32006EAF19 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		2180F1A41BE6F21B000832F2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		2180F1A51BE6F21B000832F2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		2180F1A61BE6F21B000832F2 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		2180F1A91BE6F21B000832F2 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
-		2180F1AA1BE6F21B000832F2 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		2180F1A41BE6F21B000832F2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = CheckMate/ThirdParty/Bolts.framework; sourceTree = "<group>"; };
+		2180F1A51BE6F21B000832F2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = CheckMate/ThirdParty/Parse.framework; sourceTree = "<group>"; };
+		2180F1A61BE6F21B000832F2 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = CheckMate/ThirdParty/ParseCrashReporting.framework; sourceTree = "<group>"; };
+		2180F1A91BE6F21B000832F2 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseTwitterUtils.framework; path = CheckMate/ThirdParty/ParseTwitterUtils.framework; sourceTree = "<group>"; };
+		2180F1AA1BE6F21B000832F2 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = CheckMate/ThirdParty/ParseUI.framework; sourceTree = "<group>"; };
 		2180F1B21BE6F24B000832F2 /* libc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libc.tbd; path = usr/lib/libc.tbd; sourceTree = SDKROOT; };
 		2180F1B41BE6F8AD000832F2 /* libSystem.B.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSystem.B.dylib; path = ../../usr/lib/libSystem.B.dylib; sourceTree = "<group>"; };
 		2180F1B51BE6F8AD000832F2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
@@ -290,8 +290,8 @@
 		21EE1F781BF497D80020FFC2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21EE1F791BF497D80020FFC2 /* JSQSystemSoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQSystemSoundPlayer.h; sourceTree = "<group>"; };
 		21EE1F7A1BF497D80020FFC2 /* JSQSystemSoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQSystemSoundPlayer.m; sourceTree = "<group>"; };
-		21EE1F981BF5198B0020FFC2 /* Chat Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chat Filled-25.png"; sourceTree = "<group>"; };
-		21EE1F9C1BF5DC5C0020FFC2 /* 1447371597_Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1447371597_Map.png; sourceTree = "<group>"; };
+		21EE1F981BF5198B0020FFC2 /* Chat Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Chat Filled-25.png"; path = "CheckMate/Images/Chat Filled-25.png"; sourceTree = "<group>"; };
+		21EE1F9C1BF5DC5C0020FFC2 /* 1447371597_Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1447371597_Map.png; path = CheckMate/Images/1447371597_Map.png; sourceTree = "<group>"; };
 		21EE9DE11BF0E87400A86109 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		21EE9DE31BF0E89500A86109 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		21EE9DE51BF0E89A00A86109 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -1051,7 +1051,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "";
@@ -1095,7 +1095,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "";
